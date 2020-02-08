@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/gridViewComponent.dart';
+import 'package:flutter_app/home_screen.dart';
 import 'package:flutter_app/main1.dart';
 import 'package:flutter_app/todoList.dart';
 
@@ -20,6 +21,13 @@ class MyDrawer extends StatelessWidget {
               },
             ),
             decoration: BoxDecoration(color: Colors.deepPurpleAccent),
+          ),
+          ListTile(
+            title: Text('Home'),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()));
+            },
           ),
           ListTile(
               title: Text('Todo app'),

@@ -72,3 +72,35 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+  assets:
+    - assets/images/paytm_logo.png
+    - assets/images/uanotif_nomessage.png
+    - assets/images/smartphone.png
+    - assets/images/hand.png
+    - assets/images/phone-charge.png
+    - assets/images/gold.png
+    - assets/images/iocl_tip.png
+    - assets/images/train_help.png
+    - assets/images/send_money.png
+    - assets/images/money_transfer.png
+    - assets/images/ic_passbook_header.png
+    - assets/images/calendar_blue.png
+    - assets/images/add_money_passbook.png
+    - assets/images/book.png
+    - assets/images/real.jpg
+    - assets/images/gstbanner.png
+    - assets/images/logo.png
+    - assets/images/powered_by.png
+    - assets/images/shopping-bagg.png
+    - assets/images/shopping-bag.png
+    - assets/images/satellite-dish.png
+    - assets/images/qr-code.png
+    - assets/images/delivery.png
+    - assets/images/console.png
+    - assets/images/bank.png
+    - assets/images/airplane.png
+    - assets/images/access.png
+    - assets/images/placeholder_inapp_merchants.png
+    - assets/images/home.png
+    - assets/images/right-arrow.png
