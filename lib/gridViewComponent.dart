@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_app/myDrawer.dart';
 import 'package:http/http.dart' as http;
 
 class GridViewComponent extends StatelessWidget {
@@ -52,10 +53,10 @@ class GridItems extends State<GridViewState> {
     this.fetchImage(widget.data, page);
 
     // Infinity scroll
-    scrollController = ScrollController();
-    scrollController.addListener(_scrollListenner);
+//    scrollController = ScrollController();
+//    scrollController.addListener(_scrollListenner);
 
-//    scrollController = new ScrollController()..addListener(_scrollListenner); // other way
+    scrollController = new ScrollController()..addListener(_scrollListenner); // other way
   }
 
   fetchImage(max, page) async {
@@ -146,22 +147,6 @@ class GridItems extends State<GridViewState> {
     }
   }
 
-  _drawer() {
-    return new Drawer(
-      child: ListView(
-        children: <Widget>[
-          DrawerHeader(
-            child: Text('Header'),
-            decoration: BoxDecoration(color: Colors.lightBlueAccent),
-          ),
-          Text('text 1'),
-          Text('text 2'),
-          Text('text 3'),
-        ],
-      ),
-    );
-  }
-
   _scrollListenner() {
     if (scrollController.position.pixels ==
         scrollController.position.maxScrollExtent) {
@@ -180,7 +165,7 @@ class GridItems extends State<GridViewState> {
   Widget build(BuildContext context) {
     print('--- rebuild ---');
 
-    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
+    SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values); // fullscreen ( chưa hoạt động )
     return new Scaffold(
         appBar: new AppBar(
           title: new Text('Gridview'),
@@ -192,6 +177,6 @@ class GridItems extends State<GridViewState> {
               controller: scrollController,
             ),
             onRefresh: _pullToRefresh),
-        drawer: _drawer());
+        drawer: MyDrawer());
   }
 }
