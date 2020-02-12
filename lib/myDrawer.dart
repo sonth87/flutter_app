@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/consts.dart';
 import 'package:flutter_app/gridViewComponent.dart';
 import 'package:flutter_app/home_screen.dart';
 import 'package:flutter_app/main1.dart';
@@ -49,6 +50,16 @@ class MyDrawer extends StatelessWidget {
                           )));
             },
           ),
+          Divider(
+            height: 1,
+            color: Colors.black,
+          ),
+          ListTile(
+            title: Text('Sign out'),
+            onTap: () {
+              Navigator.of(context).pushReplacementNamed(LOGIN_SCREEN);
+            },
+          )
         ],
       ),
     );

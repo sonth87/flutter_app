@@ -21,6 +21,13 @@ dependencies:
     sdk: flutter
 
   http: ^0.12.0+4
+  carousel_slider: any
+  flutter_barcode_scanner: ^0.1.7
+
+
+  #  camera:
+#  path_provider:
+#  path:
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

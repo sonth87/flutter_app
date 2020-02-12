@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/consts.dart';
+import 'package:flutter_app/home_screen.dart';
+import 'package:flutter_app/loginScreen.dart';
 import 'package:flutter_app/myDrawer.dart';
+import 'package:flutter_app/signUpScreen.dart';
+import 'package:flutter_app/splashScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +26,14 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.red,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+//      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: new SplashScreen(), // Màn hình wellcome
+      routes: <String, WidgetBuilder>{
+        LOGIN_SCREEN: (BuildContext context) => new LoginScreen(),
+        SIGN_UP_SCREEN: (BuildContext context) => new SignUpScreen(),
+        ANIMATED_SPLASH: (BuildContext context) => new SplashScreen(),
+        HOME_SCREEN: (BuildContext context) => new HomeScreen()
+      },
     );
   }
 }
@@ -72,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      drawer: MyDrawer(),
+//      drawer: MyDrawer(),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.

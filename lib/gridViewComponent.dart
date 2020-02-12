@@ -13,18 +13,18 @@ class GridViewComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Grid view',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-      ),
-      home: new GridViewState(data: mynumber, q: q),
-    );
+//    return MaterialApp(
+//      title: 'Grid view',
+//      theme: ThemeData(
+//        primarySwatch: Colors.red,
+//      ),
+//      home: new GridViewState(data: mynumber, q: q),
+//    );
 
 //  new page ( with back button )
-//    return Scaffold(
-//      body: new GridViewState(data: mynumber, q: q,),
-//    );
+    return Scaffold(
+      body: new GridViewState(data: mynumber, q: q,),
+    );
   }
 }
 
@@ -43,7 +43,6 @@ class GridViewState extends StatefulWidget {
 
 class GridItems extends State<GridViewState> {
   List<Widget> _data = [];
-  var isLoading = false;
   ScrollController scrollController;
   var page = 1;
 
@@ -143,6 +142,7 @@ class GridItems extends State<GridViewState> {
       }
       setState(() {
         this._data = [..._data, ...newData];
+//        this._data = _data + newData;
       });
     }
   }

@@ -5,7 +5,7 @@ class Style {
   navBarStyle(label, img) {
     return new BottomNavigationBarItem(
       icon: Image.asset(
-        'assets/images/home.png',
+        img,
         width: 20,
         height: 20,
         color: Color.fromRGBO(255, 255, 255, 0.3),
@@ -13,7 +13,7 @@ class Style {
       ),
       title: Container(
         margin: EdgeInsets.only(top: 2.0),
-        child: Text('Home'),
+        child: Text(label),
       ),
     );
   }
