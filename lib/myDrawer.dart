@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/consts.dart';
-import 'package:flutter_app/gridViewComponent.dart';
-import 'package:flutter_app/home_screen.dart';
+import 'package:flutter_app/Consts/consts.dart';
+import 'package:flutter_app/Screen/gridViewComponent.dart';
+import 'package:flutter_app/Screen/home_screen.dart';
 import 'package:flutter_app/main1.dart';
-import 'package:flutter_app/todoList.dart';
+import 'package:flutter_app/Screen/todoList.dart';
 
 class MyDrawer extends StatelessWidget {
   @override

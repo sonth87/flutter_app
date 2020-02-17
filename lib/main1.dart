@@ -1,10 +1,10 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/gridViewComponent.dart';
-import 'package:flutter_app/listViewComponent.dart';
+import 'package:flutter_app/Screen/gridViewComponent.dart';
+import 'package:flutter_app/Screen/listViewComponent.dart';
 import 'package:flutter_app/myDrawer.dart';
-import 'package:flutter_app/todoList.dart';
+import 'package:flutter_app/Screen/todoList.dart';
 
 class MyApp1 extends StatelessWidget {
   Widget build(BuildContext context) {

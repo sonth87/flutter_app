@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/addNewTodoItem.dart';
-import 'package:flutter_app/models.dart';
+import 'package:flutter_app/Screen/addNewTodoItem.dart';
+import 'package:flutter_app/Models/models.dart';
 
 class TodoApp extends StatelessWidget {
   @override

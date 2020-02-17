@@ -1,9 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_app/consts.dart';
-import 'package:flutter_app/gridViewComponent.dart';
-import 'package:flutter_app/loginScreen.dart';
-import 'package:flutter_app/models.dart';
+import 'package:flutter_app/Consts/consts.dart';
+import 'package:flutter_app/Screen/gridViewComponent.dart';
+import 'package:flutter_app/Screen/loginScreen.dart';
+import 'package:flutter_app/Models/models.dart';
+import 'package:flutter_app/Screen/otpScreen.dart';
 import 'package:flutter_app/myDrawer.dart';
 import 'package:flutter_app/style.dart';
 
@@ -19,7 +20,8 @@ class HomeScreen extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.red),
       routes: <String, WidgetBuilder>{
         LOGIN_SCREEN: (BuildContext context) => LoginScreen(),
-        HOME_SCREEN: (BuildContext context) => HomeScreen()
+        HOME_SCREEN: (BuildContext context) => HomeScreen(),
+        OTP_SCREEN: (BuildContext context) => OtpScreen()
       },
     );
   }

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/consts.dart';
-import 'package:flutter_app/home_screen.dart';
-import 'package:flutter_app/loginScreen.dart';
+import 'package:flutter_app/Screen/home_screen.dart';
+import 'package:flutter_app/Screen/otpScreen.dart';
+import 'package:flutter_app/Screen/splashScreen.dart';
+import 'package:flutter_app/Consts/consts.dart';
+import 'package:flutter_app/Screen/loginScreen.dart';
 import 'package:flutter_app/myDrawer.dart';
-import 'package:flutter_app/signUpScreen.dart';
-import 'package:flutter_app/splashScreen.dart';
+import 'package:flutter_app/Screen/signUpScreen.dart';
 
 void main() => runApp(MyApp());
 
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
         LOGIN_SCREEN: (BuildContext context) => new LoginScreen(),
         SIGN_UP_SCREEN: (BuildContext context) => new SignUpScreen(),
         ANIMATED_SPLASH: (BuildContext context) => new SplashScreen(),
-        HOME_SCREEN: (BuildContext context) => new HomeScreen()
+        HOME_SCREEN: (BuildContext context) => new HomeScreen(),
+        OTP_SCREEN: (BuildContext context) => new OtpScreen(),
       },
     );
   }

@@ -1,9 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_app/consts.dart';
-import 'package:flutter_app/models.dart';
-import 'package:flutter_app/signUpScreen.dart';
+import 'package:flutter_app/Consts/consts.dart';
+import 'package:flutter_app/Models/models.dart';
+import 'package:flutter_app/Screen/signUpScreen.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -25,14 +25,16 @@ class LoginScreenState extends State<LoginScreen> {
   }
 
   submitForm() async {
-    await Timer(Duration(seconds: 5), () {
-      print('response login');
+//    await Timer(Duration(seconds: 5), () {  // waitting for response
+//      print('response login');
       if (username.value.text.length > 0 && password.value.text.length > 0) {
-        Navigator.of(context).pushReplacementNamed(HOME_SCREEN);
+//        Navigator.of(context).pushReplacementNamed(HOME_SCREEN);
+
+          Navigator.of(context).pushNamed(OTP_SCREEN);
       } else {
 //        username.
       }
-    });
+//    });
   }
 
   @override
@@ -47,16 +49,16 @@ class LoginScreenState extends State<LoginScreen> {
         ),
         Positioned(
           child: Container(
-            width: 400,
-            height: 400,
+//            width: 400,
+//            height: 400,
             decoration: BoxDecoration(
-              color: Colors.yellowAccent,
-              borderRadius: BorderRadius.circular(200.0)
+              color: Colors.deepPurpleAccent,
+              borderRadius: BorderRadius.circular(600.0)
             ),
           ),
-          height: 400,
-          width: 400,
-          left: -150,
+          height: 600,
+          width: 600,
+          left: -350,
           top: -200,
         ),
         Scaffold(
@@ -81,6 +83,7 @@ class LoginScreenState extends State<LoginScreen> {
                           TextField(
                             decoration: InputDecoration(
                               hintText: 'User Name',
+                              icon: Icon(Icons.people)
                             ),
                             onSubmitted: (val) {
                               submitForm();
@@ -90,6 +93,7 @@ class LoginScreenState extends State<LoginScreen> {
                           TextField(
                             decoration: InputDecoration(
                               hintText: 'Password',
+                              icon: Icon(Icons.vpn_key)
                             ),
                             obscureText: true,
                             onSubmitted: (val) {
