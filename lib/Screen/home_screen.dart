@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Consts/consts.dart';
+import 'package:flutter_app/Screen/VinidHome.dart';
 import 'package:flutter_app/Screen/gridViewComponent.dart';
 import 'package:flutter_app/Screen/loginScreen.dart';
 import 'package:flutter_app/Models/models.dart';
@@ -50,11 +51,17 @@ class _HomeScreenState extends State<_HomeScreen> {
       mainColor = Colors.red;
 
     return Scaffold(
-        appBar: _appBar(),
-        body: _body(),
-        bottomNavigationBar: _bottomTab(),
-        backgroundColor: Colors.grey[200],
-        drawer: MyDrawer());
+      appBar: _appBar(),
+      body: _body(),
+      bottomNavigationBar: _bottomTab(),
+      backgroundColor: Colors.grey[200],
+      drawer: MyDrawer(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.print),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
   }
 
   Widget _appBar() {
@@ -90,10 +97,12 @@ class _HomeScreenState extends State<_HomeScreen> {
                   ),
                   Positioned(
                     child: InkWell(
-                      child: Image.asset('assets/images/qr-code.png', width: 22, height: 22,),
-                      onTap: () {
-
-                      },
+                      child: Image.asset(
+                        'assets/images/qr-code.png',
+                        width: 22,
+                        height: 22,
+                      ),
+                      onTap: () {},
                     ),
                     top: 8,
                     right: 8,
@@ -206,6 +215,14 @@ class _HomeScreenState extends State<_HomeScreen> {
                   gridModel: _getGridItemList()[index],
                 );
               }),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 8.0),
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: _getBanner(),
+              ),
+              height: 150,
             )
           ],
         ),
@@ -217,57 +234,192 @@ class _HomeScreenState extends State<_HomeScreen> {
   }
 
   Widget _bottomTab() {
-    return new BottomNavigationBar(
-      items: [
-        new Style().navBarStyle('Home', 'assets/images/home.png'),
-        new Style().navBarStyle('Shop', 'assets/images/shopping-bagg.png'),
-      ],
-      currentIndex: activeTab,
-      onTap: (newIndex) => setState(() => activeTab = newIndex),
+//    return new BottomNavigationBar(
+//      items: [
+//        new Style().navBarStyle('Home', 'assets/images/home.png'),
+//        new Style().navBarStyle('Scan', 'assets/images/qr-code.png'),
+////        new Style().navBarStyle('Shop', 'assets/images/shopping-bagg.png'),
+//        BottomNavigationBarItem(icon: Icon(Icons.accessible, color: Colors.red,), title: Text('ACC')),
+//      ],
+//      currentIndex: activeTab,
+//      onTap: (newIndex) => setState(() => activeTab = newIndex),
+//    );
+    final height = 55.0;
+    return BottomAppBar(
+      child: Row(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: <Widget>[
+          InkWell(
+              child: Container(
+            height: height,
+            child: Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: Column(
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/home.png',
+                    width: 20,
+                    color: Colors.red,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 4.0),
+                    child: Text(
+                      'Home',
+                      style: TextStyle(fontSize: 12, color: Colors.red),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )),
+          InkWell(
+              child: Container(
+            height: height,
+            child: Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: Column(
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/shopping-bagg.png',
+                    width: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 4.0),
+                    child: Text(
+                      'Shop',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )),
+          Container(
+            height: height,
+          ),
+          InkWell(
+              child: Container(
+            height: height,
+            child: Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: Column(
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/access.png',
+                    width: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 4.0),
+                    child: Text(
+                      'Ticket',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )),
+          InkWell(
+              child: Container(
+            height: height,
+            child: Padding(
+              padding: EdgeInsets.only(top: 8),
+              child: Column(
+                children: <Widget>[
+                  Image.asset(
+                    'assets/images/console.png',
+                    width: 20,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(top: 4.0),
+                    child: Text(
+                      'Game',
+                      style: TextStyle(fontSize: 12),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )),
+        ],
+      ),
+      shape: CircularNotchedRectangle(),
+      color: Colors.white,
     );
   }
 
   List<GridModel> _getGridItemList() {
     List<GridModel> list = new List<GridModel>();
-    list.add(
-        new GridModel("assets/images/smartphone.png", "Mobile\nprepaid", null));
-    list.add(new GridModel("assets/images/airplane.png", "Flights", null));
-    list.add(new GridModel("assets/images/access.png", "Movie Tickets", null));
-    list.add(new GridModel("assets/images/hand.png", "Events", null));
     list.add(new GridModel(
-        "assets/images/phone-charge.png", "Mobile        Postpaid", null));
-    list.add(new GridModel("assets/images/console.png", "Games", null));
-    list.add(new GridModel("assets/images/gold.png", "Gold", null));
-    list.add(new GridModel("assets/images/iocl_tip.png", "Electricity", null));
+        "assets/images/smartphone.png", "Mobile\nprepaid", null, () {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => VinidHome()));
+    }));
     list.add(
-        new GridModel("assets/images/train_help.png", "Train Tickets", null));
+        new GridModel("assets/images/airplane.png", "Flights", null, null));
     list.add(
-      new GridModel("assets/images/shopping-bag.png", "Shopping", null),
+        new GridModel("assets/images/access.png", "Movie Tickets", null, null));
+    list.add(new GridModel("assets/images/hand.png", "Events", null, null));
+    list.add(new GridModel("assets/images/phone-charge.png",
+        "Mobile        Postpaid", null, null));
+    list.add(new GridModel("assets/images/console.png", "Games", null, null));
+    list.add(new GridModel("assets/images/gold.png", "Gold", null, null));
+    list.add(
+        new GridModel("assets/images/iocl_tip.png", "Electricity", null, null));
+    list.add(new GridModel(
+        "assets/images/train_help.png", "Train Tickets", null, null));
+    list.add(
+      new GridModel("assets/images/shopping-bag.png", "Shopping", null, null),
     );
-    list.add(new GridModel("assets/images/satellite-dish.png", "DTH", null));
+    list.add(
+        new GridModel("assets/images/satellite-dish.png", "DTH", null, null));
     list.add(new GridModel(
-        "assets/images/placeholder_inapp_merchants.png", "More", null));
+        "assets/images/placeholder_inapp_merchants.png", "More", null, null));
     return list;
   }
 
   List<GridModel> _getGridList() {
     List<GridModel> list = new List<GridModel>();
-    list.add(
-        new GridModel("assets/images/send_money.png", "Pay", Colors.white));
-    list.add(
-        new GridModel("assets/images/money_transfer.png", "UPI", Colors.white));
     list.add(new GridModel(
-        "assets/images/ic_passbook_header.png", "Passbook", Colors.white));
+        "assets/images/send_money.png", "Pay", Colors.white, null));
     list.add(new GridModel(
-        "assets/images/calendar_blue.png", "Paytm\nPostpaid", Colors.white));
+        "assets/images/money_transfer.png", "UPI", Colors.white, null));
+    list.add(new GridModel("assets/images/ic_passbook_header.png", "Passbook",
+        Colors.white, null));
+    list.add(new GridModel("assets/images/calendar_blue.png", "Paytm\nPostpaid",
+        Colors.white, null));
+    list.add(new GridModel("assets/images/add_money_passbook.png", "Add Money",
+        Colors.white, null));
     list.add(new GridModel(
-        "assets/images/add_money_passbook.png", "Add Money", Colors.white));
-    list.add(
-        new GridModel("assets/images/book.png", "Link Account", Colors.white));
+        "assets/images/book.png", "Link Account", Colors.white, null));
+    list.add(new GridModel("assets/images/ic_passbook_header.png",
+        "Link Account", Colors.white, null));
     list.add(new GridModel(
-        "assets/images/ic_passbook_header.png", "Link Account", Colors.white));
-    list.add(
-        new GridModel("assets/images/book.png", "Link Account", Colors.white));
+        "assets/images/book.png", "Link Account", Colors.white, null));
+
+    return list;
+  }
+
+  List<Container> _getBanner() {
+    List<Container> list = new List<Container>();
+
+    final arr = [
+      'assets/images/mobilebanner.png',
+      'assets/images/banner3.png',
+      'assets/images/gstbanner.png',
+    ];
+
+    arr.forEach((item) {
+      list.add(Container(
+        child: Image.asset(
+          item,
+          fit: BoxFit.cover,
+        ),
+        width: MediaQuery.of(context).size.width * 0.8,
+        margin: EdgeInsets.only(left: 8.0),
+      ));
+    });
 
     return list;
   }
@@ -283,7 +435,7 @@ class _HomeScreenState extends State<_HomeScreen> {
 }
 
 class GridItemOnTop extends StatelessWidget {
-  GridModel gridModel;
+  final GridModel gridModel;
 
   GridItemOnTop(this.gridModel);
 
@@ -311,7 +463,7 @@ class GridItemOnTop extends StatelessWidget {
 }
 
 class CustomGridItem extends StatelessWidget {
-  final gridModel;
+  final GridModel gridModel;
 
   CustomGridItem({this.gridModel});
 
@@ -325,31 +477,35 @@ class CustomGridItem extends StatelessWidget {
         child: Center(
           child: InkWell(
               onTap: () {
-                showModalBottomSheet(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(16.0),
-                                topRight: Radius.circular(16.0)),
-                          ),
-                          child: ListView(
-                            physics: NeverScrollableScrollPhysics(),
-                            shrinkWrap: true,
-                            children: <Widget>[
-                              ListTile(
-                                title: Text('title 1'),
-                              ),
-                              ListTile(
-                                title: Text('title 2'),
-                              ),
-                              ListTile(
-                                title: Text('title 3'),
-                              ),
-                            ],
-                          ));
-                    });
+                if (gridModel.callBack != null) {
+                  gridModel.callBack();
+                } else {
+                  showModalBottomSheet(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(16.0),
+                                  topRight: Radius.circular(16.0)),
+                            ),
+                            child: ListView(
+                              physics: NeverScrollableScrollPhysics(),
+                              shrinkWrap: true,
+                              children: <Widget>[
+                                ListTile(
+                                  title: Text('title 1'),
+                                ),
+                                ListTile(
+                                  title: Text('title 2'),
+                                ),
+                                ListTile(
+                                  title: Text('title 3'),
+                                ),
+                              ],
+                            ));
+                      });
+                }
               },
               child: Container(
                 padding: EdgeInsets.all(20),

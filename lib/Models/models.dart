@@ -20,8 +20,9 @@ class GridModel {
   String _imagePath;
   String _title;
   Color _color;
+  Function callBack;
 
-  GridModel(this._imagePath, this._title, this._color);
+  GridModel(this._imagePath, this._title, this._color, this.callBack);
 
   Color get color => _color;
   String get title => _title;

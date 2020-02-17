@@ -117,8 +117,8 @@ class OtpScreenState extends State<OtpScreen> {
                   controller4.value.text != '' &&
                   controller5.value.text != '' &&
                   controller6.value.text != '') {
-//                Navigator.of(context).pushReplacementNamed(HOME_SCREEN);
-                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => VinidHome()));
+                Navigator.of(context).pushReplacementNamed(HOME_SCREEN);
+//                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => VinidHome()));
               }
               if (value != '' && index < controllerList.length - 1) {
                 FocusScope.of(context)
