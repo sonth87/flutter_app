@@ -22,6 +22,9 @@ dependencies:
 
   http: ^0.12.0+4
   carousel_slider: any
+  curved_navigation_bar: ^0.3.1
+
+  #  simple_permissions: 0.1.9
 #  camera: ^0.5.7+3
 #  path_provider: ^1.6.0
 #  path: ^1.6.4
@@ -116,3 +119,23 @@ flutter:
     - assets/images/banner3.png
     - assets/images/mobilebanner.png
     - assets/backgrounds/bg1.png
+
+# care giver image
+    - assets/caregiver/mans_img.jpeg
+    - assets/caregiver/runing.png
+    - assets/caregiver/meditaion.png
+    - assets/caregiver/2.png
+    - assets/caregiver/female_above40.jpg
+    - assets/caregiver/powered_by.png
+    - assets/caregiver/logo.png
+    - assets/caregiver/marie_img.jpeg
+    - assets/caregiver/lynda.jpg
+    - assets/caregiver/Michael_img.jpg
+    - assets/caregiver/michael.jpg
+    - assets/caregiver/blood_1.png
+    - assets/caregiver/heartrate.png
+    - assets/caregiver/temprature.png
+    - assets/caregiver/splash1.jpg
+    - assets/caregiver/care1.png
+    - assets/caregiver/care-2.png
+    - assets/caregiver/care-3.png

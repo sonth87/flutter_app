@@ -1,7 +1,10 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Consts/consts.dart';
+import 'package:flutter_app/Screen/MusicPlayerScreen.dart';
 import 'package:flutter_app/Screen/VinidHome.dart';
+import 'package:flutter_app/Screen/careGiver/careGiver_home_screen.dart';
+import 'package:flutter_app/Screen/careGiver/careGiver_splash_screen.dart';
 import 'package:flutter_app/Screen/gridViewComponent.dart';
 import 'package:flutter_app/Screen/loginScreen.dart';
 import 'package:flutter_app/Models/models.dart';
@@ -24,6 +27,7 @@ class HomeScreen extends StatelessWidget {
         HOME_SCREEN: (BuildContext context) => HomeScreen(),
         OTP_SCREEN: (BuildContext context) => OtpScreen()
       },
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -356,11 +360,15 @@ class _HomeScreenState extends State<_HomeScreen> {
       Navigator.of(context)
           .push(MaterialPageRoute(builder: (context) => VinidHome()));
     }));
-    list.add(
-        new GridModel("assets/images/airplane.png", "Flights", null, null));
+    list.add(new GridModel("assets/images/airplane.png", "Flights", null, () {
+      _promptDialog();
+    }));
     list.add(
         new GridModel("assets/images/access.png", "Movie Tickets", null, null));
-    list.add(new GridModel("assets/images/hand.png", "Events", null, null));
+    list.add(new GridModel("assets/images/hand.png", "Events", null, () {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => MusicPlayerScreen()));
+    }));
     list.add(new GridModel("assets/images/phone-charge.png",
         "Mobile        Postpaid", null, null));
     list.add(new GridModel("assets/images/console.png", "Games", null, null));
@@ -432,6 +440,24 @@ class _HomeScreenState extends State<_HomeScreen> {
   refreshHome() async {
     await print('refreshing...');
   }
+
+  void _promptDialog() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return new AlertDialog(
+            title: Text('showing dialog...'),
+            actions: <Widget>[
+              FlatButton(
+                child: new Text('Ok'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
+  }
 }
 
 class GridItemOnTop extends StatelessWidget {
@@ -494,13 +520,31 @@ class CustomGridItem extends StatelessWidget {
                               shrinkWrap: true,
                               children: <Widget>[
                                 ListTile(
-                                  title: Text('title 1'),
+                                  title: InkWell(
+                                    child: Text('Screen 1'),
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(builder: (context) => VinidHome()));
+                                    },
+                                  ),
                                 ),
                                 ListTile(
-                                  title: Text('title 2'),
+                                  title: InkWell(
+                                    child: Text('Music Screen'),
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(builder: (context) => MusicPlayerScreen()));
+                                    },
+                                  ),
                                 ),
                                 ListTile(
-                                  title: Text('title 3'),
+                                  title: InkWell(
+                                    child: Text('Care Giver Screen'),
+                                    onTap: () {
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(builder: (context) => CareGiverSplashScreen()));
+                                    },
+                                  ),
                                 ),
                               ],
                             ));

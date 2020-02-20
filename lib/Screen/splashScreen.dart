@@ -9,11 +9,33 @@ class SplashScreen extends StatefulWidget {
   SplashScreenState createState() => SplashScreenState();
 }
 
-class SplashScreenState extends State<SplashScreen> {
+class SplashScreenState extends State<SplashScreen>
+    with SingleTickerProviderStateMixin {
+  Animation _animation;
+  AnimationController _animationController;
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    _animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 2));
+    _animation = Tween(begin: 0.0, end: 500.0).animate(_animationController)
+      ..addListener(() {
+        setState(() {
+
+        });
+      })
+      ..addStatusListener((state) {
+        if (state == AnimationStatus.completed) {
+          print('Animation Completed');
+        } else if (state == AnimationStatus.dismissed) {
+          print('Animation Dismissed');
+        }
+      });
+
+    _animationController.forward();
 
     startTime();
   }
@@ -21,6 +43,12 @@ class SplashScreenState extends State<SplashScreen> {
   startTime() async {
     var _duration = Duration(seconds: 5);
     return Timer(_duration, navigationPage);
+  }
+
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
   }
 
   navigationPage() {
@@ -43,15 +71,31 @@ class SplashScreenState extends State<SplashScreen> {
           height: MediaQuery.of(context).size.height,
         ),
         Container(
-          child: Center(
-            child: Text(
-              'Wellcome Screen',
-              style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  decoration: TextDecoration.none),
-            ),
+//          child: Center(
+////            child: Text(
+////              'Wellcome Screen',
+////              style: TextStyle(
+////                  fontSize: 20,
+////                  color: Colors.white,
+////                  decoration: TextDecoration.none),
+////            ),
+          child: Transform.translate(
+            offset: Offset(0, _animation.value * 0.5),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Wellcome Screen',
+                  style: TextStyle(
+                    fontSize: _animation.value * 0.05,
+                    color: Colors.white,
+                    decoration: TextDecoration.none,
+                  ),
+                ),
+              ],
+            )
           ),
+//          ),
           color: Colors.transparent,
         )
       ],
