@@ -104,7 +104,6 @@ class _CareGiverSplashScreenState extends State<CareGiverSplashScreen> {
                                       child: Visibility(
                                         visible: currentPage > 0 ? true : false,
                                         child: Container(
-                                          padding: EdgeInsets.all(12.0),
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(50),
@@ -112,9 +111,12 @@ class _CareGiverSplashScreenState extends State<CareGiverSplashScreen> {
                                                 Colors.white.withOpacity(0.2),
                                           ),
                                           child: InkWell(
-                                            child: Icon(
-                                              Icons.arrow_back_ios,
-                                              color: Colors.white,
+                                            child: Padding(
+                                              padding: EdgeInsets.all(12.0),
+                                              child: Icon(
+                                                Icons.arrow_back_ios,
+                                                color: Colors.white,
+                                              ),
                                             ),
                                             onTap: () {
                                               int page = currentPage - 1;
@@ -135,7 +137,6 @@ class _CareGiverSplashScreenState extends State<CareGiverSplashScreen> {
                                         visible:
                                             currentPage < splashList.length - 1,
                                         child: Container(
-                                          padding: EdgeInsets.all(12.0),
                                           decoration: BoxDecoration(
                                             borderRadius:
                                                 BorderRadius.circular(50),
@@ -143,15 +144,18 @@ class _CareGiverSplashScreenState extends State<CareGiverSplashScreen> {
                                                 Colors.white.withOpacity(0.2),
                                           ),
                                           child: InkWell(
-                                            child: Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: Colors.white,
+                                            child: Padding(
+                                              padding: EdgeInsets.all(12.0),
+                                              child: Icon(
+                                                Icons.arrow_forward_ios,
+                                                color: Colors.white,
+                                              ),
                                             ),
                                             onTap: () {
                                               int page = currentPage + 1;
                                               controller.animateToPage(page,
-                                                  duration:
-                                                      Duration(milliseconds: 500),
+                                                  duration: Duration(
+                                                      milliseconds: 500),
                                                   curve: Curves.easeInOut);
                                             },
                                           ),
