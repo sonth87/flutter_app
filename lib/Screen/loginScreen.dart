@@ -101,10 +101,23 @@ class LoginScreenState extends State<LoginScreen> {
                             },
                             controller: password,
                           ),
+
+                          Padding(
+                            padding: EdgeInsets.only(top: 20, bottom: 20),
+                            child: FlatButton(
+                              child: Text('Đăng nhập'),
+                              color: Colors.deepPurpleAccent,
+                              textColor: Colors.white,
+                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5.0)),
+                              onPressed: () {
+                                submitForm();
+                              },
+                            ),
+                          ),
                           Padding(
                             padding: EdgeInsets.only(top: 20.0),
                             child: InkWell(
-                              child: Text('Đăng ký'),
+                              child: Text('Chưa có tài khoản? Đăng ký.'),
                               onTap: () {
 //                        Navigator.of(context)
 //                            .pushNamed(SIGN_UP_SCREEN);
