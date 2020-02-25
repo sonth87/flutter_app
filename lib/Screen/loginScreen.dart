@@ -22,6 +22,9 @@ class LoginScreenState extends State<LoginScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
+    username.value = TextEditingValue(text: 'sonth2');
+    password.value = TextEditingValue(text: '123');
   }
 
   submitForm() async {

@@ -55,7 +55,7 @@ class MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-//      drawer: MyDrawer(),
+      drawer: MyDrawer(),
       appBar: new AppBar(
         title: new Text(getTitle()),
         actions: <Widget>[

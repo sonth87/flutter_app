@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/Consts/consts.dart';
 import 'package:flutter_app/Screen/careGiver/HomeScreen.dart';
 import 'package:flutter_app/Screen/careGiver/NotifyScreen.dart';
+import 'package:flutter_app/myDrawer.dart';
 
 class CareGiverHomeScreen extends StatefulWidget {
   @override
@@ -17,13 +18,24 @@ class _CareGiverHomeScreenState extends State<CareGiverHomeScreen> {
   double _width;
   int _currentIndex = 0;
 
-  final List<Widget> _listScreen = [
-    HomeScreen(),
-    NotifyScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-  ];
+  // Tạo 1 global key cho scaffold theo ScaffoldState và gọi khi mở drawer
+  // từ những nơi khác không phải là appbar
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  List<Widget> _listScreen = [];
+
+  @override
+  void initState() {
+    _listScreen = [
+      HomeScreen(sKey: _scaffoldKey),
+      NotifyScreen(),
+      HomeScreen(sKey: _scaffoldKey),
+      HomeScreen(sKey: _scaffoldKey),
+      HomeScreen(sKey: _scaffoldKey),
+    ];
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +44,9 @@ class _CareGiverHomeScreenState extends State<CareGiverHomeScreen> {
 
     return WillPopScope(
       child: Scaffold(
+        key: _scaffoldKey, // to open drawer from another button by add a key for calling myKey.currentState.openDrawer()
         appBar: _appBar(),
+        drawer: MyDrawer(),
         body: _body(),
         bottomNavigationBar: CurvedNavigationBar(
           index: 0,
@@ -66,7 +80,7 @@ class _CareGiverHomeScreenState extends State<CareGiverHomeScreen> {
           ],
           color: Colors.deepPurpleAccent,
           buttonBackgroundColor: Colors.orange,
-          backgroundColor: Colors.blue,
+          backgroundColor: Color.fromRGBO(114, 57, 241, 1),
           animationCurve: Curves.easeInOut,
           animationDuration: Duration(milliseconds: 500),
           onTap: (index) {

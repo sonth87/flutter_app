@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_app/Consts/consts.dart';
+import 'package:flutter_app/Screen/AnimationScreen.dart';
 import 'package:flutter_app/Screen/MusicPlayerScreen.dart';
 import 'package:flutter_app/Screen/VinidHome.dart';
 import 'package:flutter_app/Screen/careGiver/careGiver_home_screen.dart';
@@ -523,8 +524,10 @@ class CustomGridItem extends StatelessWidget {
                                   title: InkWell(
                                     child: Text('Screen 1'),
                                     onTap: () {
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(builder: (context) => VinidHome()));
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  VinidHome()));
                                     },
                                   ),
                                 ),
@@ -532,8 +535,10 @@ class CustomGridItem extends StatelessWidget {
                                   title: InkWell(
                                     child: Text('Music Screen'),
                                     onTap: () {
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(builder: (context) => MusicPlayerScreen()));
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  MusicPlayerScreen()));
                                     },
                                   ),
                                 ),
@@ -541,11 +546,24 @@ class CustomGridItem extends StatelessWidget {
                                   title: InkWell(
                                     child: Text('Care Giver Screen'),
                                     onTap: () {
-                                      Navigator.of(context)
-                                          .push(MaterialPageRoute(builder: (context) => CareGiverSplashScreen()));
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  CareGiverSplashScreen()));
                                     },
                                   ),
                                 ),
+                                ListTile(
+                                  title: InkWell(
+                                    child: Text('Animation Screen'),
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                                  AnimationScreen()));
+                                    },
+                                  ),
+                                )
                               ],
                             ));
                       });

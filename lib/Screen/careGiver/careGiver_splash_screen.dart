@@ -60,7 +60,7 @@ class _CareGiverSplashScreenState extends State<CareGiverSplashScreen> {
                   physics: ClampingScrollPhysics(),
                   // https://api.flutter.dev/flutter/widgets/ClampingScrollPhysics-class.html
                   itemCount: splashList.length,
-                  controller: controller,
+                  controller: controller, // Slider cả page với PageView và sử dụng PageController điều khiển
                   itemBuilder: (BuildContext context, int index) {
                     return _buildSplashList(splashList[index], index);
                   },
